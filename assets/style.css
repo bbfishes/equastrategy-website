@@ -34,18 +34,18 @@ img,svg{max-width:100%}
 .serif{font-family:var(--serif)}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:500;font-size:15px;padding:13px 24px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;transition:.18s;line-height:1}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:500;font-size:15px;padding:13px 24px;border-radius:var(--r-sm);border:1px solid transparent;cursor:pointer;transition:background-color .18s,color .18s,border-color .18s,transform .18s;line-height:1}
 .btn-primary{background:var(--indigo);color:#fff}
 .btn-primary:hover{background:#16306f;text-decoration:none}
-.btn-accent{background:var(--electric);color:#fff}
-.btn-accent:hover{background:#1c7ad2;text-decoration:none}
+.btn-accent{background:#0F63C0;color:#fff}
+.btn-accent:hover{background:#0B4E9A;text-decoration:none}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--indigo);color:var(--indigo);text-decoration:none}
 .btn-light{background:#fff;color:var(--ink)}
 .btn-light:hover{background:var(--cloud);text-decoration:none}
 
 /* ---------- header / nav ---------- */
-.site-header{position:sticky;top:0;z-index:100;background:rgba(245,243,238,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(245,243,238,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;height:68px;gap:20px}
 .brand{display:flex;align-items:center;gap:11px}
 .brand img{width:34px;height:34px}
@@ -206,9 +206,9 @@ section{padding:88px 0}
    互動與豐富度增強：捲動浮現動畫、Hero 圖像、創辦人區、Logo 牆、Framework 連線
    ========================================================================== */
 
-/* 捲動浮現 */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
-.reveal.in{opacity:1;transform:none}
+/* 捲動浮現（僅在 JS 啟用時隱藏，確保無 JS/JS 延遲時內容可見） */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
 .reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}.reveal.d6{transition-delay:.48s}
 
@@ -236,8 +236,8 @@ section{padding:88px 0}
 .founder .avatar{width:220px;height:220px;border-radius:var(--r-lg);background:#0f1c3a;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
 .founder .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .founder .avatar .ini{font-family:var(--mono);font-weight:700;font-size:64px;color:#fff;letter-spacing:.04em}
-.founder .avatar .badge{position:absolute;bottom:0;left:0;right:0;background:var(--electric);color:#fff;font-size:11px;text-align:center;padding:6px;letter-spacing:.08em}
-.founder .role{color:var(--electric);font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin:4px 0 12px}
+.founder .avatar .badge{position:absolute;bottom:0;left:0;right:0;background:var(--ink);color:#fff;font-size:12px;font-weight:500;text-align:center;padding:7px;letter-spacing:.08em;border-top:1px solid rgba(255,255,255,.14)}
+.founder .role{color:#8FB4E6;font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin:4px 0 12px}
 .founder .bio{color:#C7CEDD;font-size:15px;line-height:1.85}
 .founder .tags{display:flex;flex-wrap:wrap;gap:7px;margin:16px 0 0}
 .founder .tags span{background:rgba(255,255,255,.08);color:#DCE6F5;font-size:12px;padding:4px 11px;border-radius:999px;font-family:var(--mono)}
@@ -265,13 +265,17 @@ section{padding:88px 0}
   .founder .avatar{margin:0 auto}
   .founder .tags{justify-content:center}
   .logowall{grid-template-columns:repeat(4,1fr)}
+  .hero .wrap{grid-template-columns:1fr;gap:8px}
+  .hero-art{display:none}
 }
 @media(max-width:720px){
-  .hero .wrap{grid-template-columns:1fr}
-  .hero-art{display:none}
   .logowall{grid-template-columns:repeat(3,1fr)}
   .fw:not(:last-child)::after{display:none}
   .founder{padding:32px 24px}
+}
+@media(max-width:480px){
+  .logowall{grid-template-columns:repeat(2,1fr)}
+  .logowall .cell{min-height:84px}
 }
 
 /* 尊重使用者的減少動態偏好 */

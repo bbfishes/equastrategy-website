@@ -1,9 +1,11 @@
-// 行動版導覽切換
+// 行動版導覽切換（同步 aria-expanded）
 document.addEventListener('click', function (e) {
   var toggle = e.target.closest('.nav-toggle');
   if (toggle) {
     var nav = document.getElementById('nav');
-    if (nav) nav.classList.toggle('open');
+    if (!nav) return;
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
   }
 });
 
@@ -13,16 +15,18 @@ var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-moti
 // 捲動浮現
 (function () {
   var els = document.querySelectorAll('.reveal');
-  if (reduceMotion || !('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in'); });
-    return;
-  }
+  function showAll() { els.forEach(function (el) { el.classList.add('in'); }); }
+  if (reduceMotion || !('IntersectionObserver' in window)) { showAll(); return; }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (en) {
       if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
     });
   }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+  // 保險：若 3.5 秒後仍有未顯示者（IO 未觸發），強制顯示，避免內容隱藏
+  setTimeout(function () {
+    els.forEach(function (el) { if (!el.classList.contains('in')) el.classList.add('in'); });
+  }, 3500);
 })();
 
 // 數字滾動計數
