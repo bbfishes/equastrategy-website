@@ -58,6 +58,7 @@ img,svg{max-width:100%}
 .nav a.active{color:var(--indigo)}
 .nav a.active::after{content:"";display:block;height:2px;background:var(--electric);border-radius:2px;margin-top:3px}
 .nav-cta{margin-left:4px}
+.nav a.nav-cta,.nav a.nav-cta:hover{color:#fff}
 .nav-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:38px;font-size:20px;color:var(--ink);cursor:pointer}
 
 /* ---------- hero ---------- */
