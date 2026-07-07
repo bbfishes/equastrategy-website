@@ -147,8 +147,10 @@ section{padding:88px 0}
 
 /* ---------- Alice profile ---------- */
 .profile{display:grid;grid-template-columns:200px 1fr;gap:36px;align-items:start}
-.profile .avatar{width:200px;height:200px;border-radius:var(--r-lg);background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.profile{grid-template-columns:220px 1fr}
+.profile .avatar{width:220px;height:270px;border-radius:var(--r-lg);background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .profile .avatar::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+.profile .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 15%}
 .profile .avatar .ini{position:relative;font-family:var(--mono);font-weight:700;font-size:56px;color:#fff}
 .profile .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
 .profile .tags span{background:var(--cloud);color:var(--indigo);font-size:12px;padding:4px 11px;border-radius:999px;font-family:var(--mono)}
@@ -184,7 +186,7 @@ section{padding:88px 0}
 @media(max-width:900px){
   .grid-3,.numbers,.framework,.contact-grid{grid-template-columns:1fr 1fr}
   .profile{grid-template-columns:1fr}
-  .profile .avatar{width:150px;height:150px}
+  .profile .avatar{width:180px;height:220px}
 }
 @media(max-width:720px){
   .nav{display:none;position:absolute;top:68px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 0}
@@ -231,6 +233,7 @@ section{padding:88px 0}
 .founder > *{position:relative}
 .founder h3{color:#fff}
 .founder .avatar{width:220px;height:220px;border-radius:var(--r-lg);background:#0f1c3a;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.12)}
+.founder .avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .founder .avatar .ini{font-family:var(--mono);font-weight:700;font-size:64px;color:#fff;letter-spacing:.04em}
 .founder .avatar .badge{position:absolute;bottom:0;left:0;right:0;background:var(--electric);color:#fff;font-size:11px;text-align:center;padding:6px;letter-spacing:.08em}
 .founder .role{color:var(--electric);font-family:var(--mono);font-size:13px;letter-spacing:.06em;margin:4px 0 12px}
@@ -240,8 +243,9 @@ section{padding:88px 0}
 
 /* Logo 牆（灰階字標，hover 浮現品牌色） */
 .logowall{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;max-width:960px;margin:0 auto}
-.logowall .cell{background:var(--paper);min-height:96px;display:flex;align-items:center;justify-content:center;padding:14px 10px;text-align:center;transition:.22s}
-.logowall .cell:hover{background:#fff}
+.logowall .cell{background:#fff;min-height:96px;display:flex;align-items:center;justify-content:center;padding:18px 14px;text-align:center;transition:.22s}
+.logowall .cell img{max-width:100%;max-height:38px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.58;transition:.28s}
+.logowall .cell:hover img{filter:none;opacity:1;transform:scale(1.04)}
 .logowall .wm{font-family:var(--sans);font-weight:500;font-size:15px;line-height:1.25;color:#A7A29A;letter-spacing:.02em;transition:.22s}
 .logowall .wm.en{font-family:var(--mono);font-weight:600;letter-spacing:.04em}
 .logowall .cell:hover .wm{color:var(--indigo)}
