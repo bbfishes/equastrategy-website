@@ -326,3 +326,23 @@ section{padding:88px 0}
 @media(max-width:560px){
   .cf-grid,.case-grid{grid-template-columns:1fr}
 }
+
+/* ---------- 關於頁：創辦人大版位 ---------- */
+.founder-full{display:grid;grid-template-columns:340px 1fr;gap:0;align-items:stretch;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
+.ff-photo{position:relative;min-height:460px;background:var(--ink)}
+.ff-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%}
+.ff-body{padding:38px 42px}
+.ff-body h3{font-size:26px}
+.ff-role{color:var(--link);font-family:var(--mono);font-size:13px;letter-spacing:.04em;margin:6px 0 18px}
+.ff-hook{font-family:var(--serif);font-size:21px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.ff-hook em{font-style:normal;color:var(--electric);font-weight:500}
+.founder-full .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.founder-full .tags span{background:var(--cloud);color:var(--indigo);font-size:12px;padding:5px 12px;border-radius:999px;font-family:var(--mono)}
+.ff-list{margin:0;padding:0;list-style:none}
+.ff-list li{position:relative;padding-left:22px;color:var(--slate);font-size:15px;line-height:1.7;margin-top:10px}
+.ff-list li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--electric)}
+@media(max-width:760px){
+  .founder-full{grid-template-columns:1fr}
+  .ff-photo{min-height:340px}
+  .ff-body{padding:28px 24px}
+}
