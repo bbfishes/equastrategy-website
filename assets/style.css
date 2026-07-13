@@ -338,7 +338,7 @@ section{padding:88px 0}
 .ff-body{padding:38px 42px}
 .ff-body h3{font-size:26px}
 .ff-role{color:var(--link);font-family:var(--mono);font-size:13px;letter-spacing:.04em;margin:6px 0 18px}
-.ff-hook{font-family:var(--serif);font-size:21px;line-height:1.7;color:var(--ink);margin:0 0 20px}
+.ff-hook{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.75;color:var(--ink);margin:0 0 20px}
 .ff-hook em{font-style:normal;color:var(--electric);font-weight:500}
 .founder-full .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .founder-full .tags span{background:var(--cloud);color:var(--indigo);font-size:12px;padding:5px 12px;border-radius:999px;font-family:var(--mono)}
